@@ -2,11 +2,14 @@
 " numéro de ligne
 set number
 set relativenumber
+
 " Ne pas utiliser le mode de compatibilité vi
 set nocompatible
+
 " Background
 set background=dark
 " set background=light
+
 " Encodage par défaut des buffers et des fichiers
 set encoding=utf-8
 set fileencoding=utf-8
@@ -26,7 +29,6 @@ set textwidth=600
 " Complétion en mode insertion (<C-n>)
 set completeopt=longest,menuone
 
-
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -42,12 +44,16 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'tmhedberg/matchit'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/Syntastic'
 Plugin 'godlygeek/csapprox'
+Plugin 'vim-scripts/LustyExplorer'
+Plugin 'mileszs/ack.vim'
+
+set hidden
 " Plugin '1995eaton/vim-better-javascript-completion'
 " Plugin 'pangloss/vim-javascript'
 
@@ -62,9 +68,8 @@ filetype plugin indent on    " required
 " Open nerdTree si pas de fichier specifier a l'ouverture de vim
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" map <F2> :NERDTreeToggle<CR>
 
-map <F2> :NERDTreeToggle<CR>
-"
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -92,7 +97,7 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
 " On remplace les \t par des espaces
 set expandtab
- 
+
 " Largeur de l'autoindentation
 set shiftwidth=0
 " Largeur de l'indentation avec <tab>
@@ -200,7 +205,7 @@ nmap <C-Left>  :tabprevious <CR>
 " {{{ 7 Unixage
  
 " Path pour la recherche de fichier avec :find, :sfind et :tabfind
-set path=.,/usr/include,/usr/X11R6/include,/usr/local/include
+" set path=.,/usr/include,/usr/X11R6/include,/usr/local/include
  
 " Le texte sélectionné en mode visuel est collé dans le presse-papier PRIMARY
 set clipboard=autoselect
@@ -211,7 +216,7 @@ set shell=/bin/sh
 " {{{ 8 Mapping
  
 " Supprimer les blancs en début de ligne
-nmap _S :%s/^\s\+//<CR>
+" nmap _S :%s/^\s\+//<CR>
 
 " Naviguer entre les fenetres splités
  map <S-Left> <ESC><C-w>h
@@ -231,7 +236,7 @@ vnoremap <tab>	=
 nnoremap <tab>	=$
 nnoremap <C-tab> mzvip=`z
 
-map <F5> <ESC>lBi${<ESC>Ea}<ESC>
+" map <F5> <ESC>lBi${<ESC>Ea}<ESC>
 
 "Mapping pour vimdiff <F9> pour diff prec <F10> pour diff suivant <F8> = dp
 
@@ -239,12 +244,14 @@ map <F8> <ESC>dp<ESC>
 map <F9> <ESC>[c<ESC>
 map <F10> <ESC>]c<ESC>
 
+"Mapping pour quitter le mode insert par ;;
 map ;; <Esc>
 imap ;; <Esc>
+vmap ;; <Esc>
 
- 
+
 " Génération des tags pour les fichiers à la C++
-map <F11> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+" map <F11> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
  
 " {{{ 9 Plugin
  
@@ -264,21 +271,20 @@ let spell_auto_type = ''
 let spell_insert_mode = 0
  
 " Configuration OmbiCpp (C++)
-let OmniCpp_DefaultNamespaces=["std", "_GLIBCXX_STD"]
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteArrow = 1
-let OmniCpp_MayCompleteScope = 1
-let OmniCpp_ShowPrototypeInAbbr = 1
- 
+" let OmniCpp_DefaultNamespaces=["std", "_GLIBCXX_STD"]
+" let OmniCpp_GlobalScopeSearch = 1
+" let OmniCpp_NamespaceSearch = 1
+" let OmniCpp_MayCompleteDot = 1
+" let OmniCpp_MayCompleteArrow = 1
+" let OmniCpp_MayCompleteScope = 1
+" let OmniCpp_ShowPrototypeInAbbr = 1
+
 " Configuration de taglist
 "set tags+=~/.vim/tags/stl
 
 if has("autocmd")
 	filetype plugin indent on
 	autocmd FileType text setlocal textwidth=78
-	  
 	  " always jump to last edit position when opening a file
 		 autocmd BufReadPost *
 		   \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -297,11 +303,20 @@ au BufWinEnter * let w:m3=matchadd('Space', '\s\+$\| \+\ze\t', -1)
 set list listchars=tab:»·,trail:·
 
 "Changer la taille (gvim)
-set guifont=Monospace\ 8
+" set guifont=Monospace\ 8
 
-:map <F4> :set nowrapscan<CR>/#endif<CR>zf%
+" :map <F4> :set nowrapscan<CR>/#endif<CR>zf%
 
 colorscheme wombat256mod
 " colorscheme solarized
-execute pathogen#infect()
-call pathogen#helptags()
+let mapleader = ","
+
+" Mapping Pour Ack
+let g:ackprg="ack -H --nocolor --nogroup --column"
+" Place un marqueur et cherche
+nmap <leader>j mA:Ack<space>
+
+" Place un marqueur et cherche le mot sous le curseur
+nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
+nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
+
