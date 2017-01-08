@@ -7,6 +7,8 @@ colorscheme southernlights
 " colorscheme darkocean
 " colorscheme xoria256
 " colorscheme jellybeans
+colorscheme solarized
+set background=dark
 
 hi Comment ctermfg=239 guifg=#80a0ff
 
@@ -93,5 +95,3 @@ nmap <leader>j mA:Ack<space>
 nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
 nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
 
-map <CR> (wildfire-fuel)
-vmap \| (wildfire-water)
