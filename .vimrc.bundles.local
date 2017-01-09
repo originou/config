@@ -1,0 +1,6 @@
+UnBundle 'gcmt/wildfire.vim'
+UnBundle 'vim-airline/vim-airline'
+
+Bundle 'benmills/vimux'
+Bundle 'lervag/vimtex'
+Bundle 'leafgarland/typescript-vim'

@@ -1,0 +1,102 @@
+set relativenumber
+
+" colorscheme southernlights
+" colorscheme vividchalk
+" colorscheme railscasts
+" colorscheme gotham256
+" colorscheme darkocean
+" colorscheme xoria256
+" colorscheme jellybeans
+" colorscheme solarized
+set background=dark
+colorscheme wombat256mod
+
+" hi Comment ctermfg=239 guifg=#80a0ff
+
+map ;j <esc>
+vmap ;j <esc>
+imap ;j <esc>
+
+" hi Normal ctermbg=none
+
+" Override SPF13 desire to write to system clipboad by default
+if has('clipboard')
+    if LINUX()   " On Linux use + register for copy-paste
+        set clipboard=unnamed
+    else         " On mac and Windows, use * register for copy-paste
+        set clipboard=
+    endif
+endif
+" But we do want to a shortcut for copying to/from System Clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+
+" Easier split navigation
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Naviguer entre les fenetres splités
+ map <S-Left> <ESC><C-w>h
+ map <S-Down> <ESC><C-w>j
+ map <S-Up> <ESC><C-w>k
+ map <S-Right> <ESC><C-w>l
+
+" Raccourcis claviers pour les Tabs
+map <C-Down>  :tabnew <CR>
+nmap <C-Right> :tabnext <CR>
+nmap <C-Left>  :tabprevious <CR> 
+" nmap <C-Up>  :tabclose <CR> 
+
+" CtrlP Configurations
+"let g:ctrlp_map = '<Leader>o'
+" Trying some new stuff with CtrlP. Comment the stuff below out if its
+"starts act wierd
+nmap <C-M-t> :CtrlPBufTag <cr>
+nmap <C-M-f> :CtrlPMRUFiles<cr>
+nmap <Bslash>t :CtrlPBufTag <cr>
+nmap <Bslash>f :CtrlPMRUFiles<cr>
+nmap <Bslash>b :CtrlPBuffer<cr>
+unlet g:ctrlp_custom_ignore
+unlet g:ctrlp_user_command
+let g:ctrlp_user_command = 'ag --nogroup --nobreak --noheading --nocolor -g "" %s '
+"let g:ctrlp_working_path_mode = 'ra'
+"let g:ctrlp_switch_buffer = 1
+" I don't want to pull up these folders/files when calling CtrlP
+set wildignore+=*/cache/**,*/tmp/*,*.so,*.swp,*.zip,_ide_helper.php
+
+" Change mapping for the default trigger on Emmet
+" let g:user_emmet_leader_key='<C-Z>'
+" " Bubble single lines
+" nmap <C-Up> ddkP
+" nmap <C-Down> ddp
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
+
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+"Je préfere sans (Denis)
+set nowrapscan
+
+" Mapping Pour Ack
+let g:ackprg="ack -H --nocolor --nogroup --column"
+" Place un marqueur et cherche
+nmap <leader>j mA:Ack<space>
+
+" Place un marqueur et cherche le mot sous le curseur
+nmap <leader>ja mA:Ack "<C-r>=expand("<cword>")<cr>"
+nmap <leader>jA mA:Ack "<C-r>=expand("<cWORD>")<cr>"
+
+autocmd BufEnter *  set nospell
+autocmd BufRead *  set nospell
+" autocmd BufLeave *  set spell
+
