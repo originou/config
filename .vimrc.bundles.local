@@ -4,3 +4,6 @@ UnBundle 'vim-airline/vim-airline'
 Bundle 'benmills/vimux'
 Bundle 'lervag/vimtex'
 Bundle 'leafgarland/typescript-vim'
+
+Bundle 'nelsyeung/twig.vim'
+Bundle 'fatih/vim-go'
