@@ -1,5 +1,6 @@
+UnBundle 'amirh/HTML-AutoCloseTag'
 UnBundle 'gcmt/wildfire.vim'
-UnBundle 'vim-airline/vim-airline'
+" UnBundle 'vim-airline/vim-airline'
 
 Bundle 'benmills/vimux'
 Bundle 'lervag/vimtex'
@@ -7,3 +8,9 @@ Bundle 'leafgarland/typescript-vim'
 
 Bundle 'nelsyeung/twig.vim'
 Bundle 'fatih/vim-go'
+Bundle 'Quramy/vim-js-pretty-template'
+Bundle 'Shougo/vimproc.vim', {'do' : 'make'}
+Bundle 'Quramy/vim-dtsm'
+Bundle 'mhartington/vim-typings'
+Bundle 'Quramy/tsuquyomi'
+Bundle 'akz92/vim-ionic2'

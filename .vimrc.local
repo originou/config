@@ -11,6 +11,8 @@ set relativenumber
 set background=dark
 colorscheme wombat256mod
 
+let g:airline_theme='molokai'
+
 " hi Comment ctermfg=239 guifg=#80a0ff
 
 map ;j <esc>
@@ -101,4 +103,15 @@ autocmd BufRead *  set nospell
 " autocmd BufLeave *  set spell
 
 let g:neosnippet#snippets_directory='~/.vim/bundle/twig.vim/neosnippets'
+
+" Typescript-vim
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+" vim-js-pretty-template
+" Pour les templates html dans du js
+autocmd FileType javascript JsPreTmpl html
+autocmd FileType typescript JsPreTmpl html
 
