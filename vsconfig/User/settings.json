@@ -1,0 +1,64 @@
+{
+    // Controls the font size in pixels.
+    "editor.fontSize": 13,
+    "window.zoomLevel": -1,
+    // Controls if the minimap is shown
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.wordWrap": "off",
+    "editor.cursorBlinking": "expand",
+    "editor.dragAndDrop": false,
+
+    //workbench
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.statusBar.visible": true,
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.sideBar.location": "left",
+    "workbench.activityBar.visible": true,
+    "workbench.iconTheme": "vscode-icons",
+
+    // bookmarks
+    "bookmarks.saveBookmarksInProject": true,
+
+    // zen mode
+    // Controls if turning on Zen Mode also hides workbench tabs.
+    "zenMode.hideTabs": false,
+
+    // Controls if turning on Zen Mode also hides the status bar at the bottom of the workbench.
+    "zenMode.hideStatusBar": false,
+
+    // vim
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [";", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [";", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+
+    // Remapped keys in normal mode. Allows mapping to vim commands or vscode actions. See README for more.
+    "vim.otherModesKeyBindings": [
+        {
+            "before": [";", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    // Non-recursive remapped keys in normal mode. Allows mapping to vim commands or vscode actions. See README for more.
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [";", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+
+  "vim.easymotion": true,
+  "vim.searchHighlightColor": "rgba(150, 150, 255, 1)",
+  "vim.hlsearch": true
+}

@@ -1,0 +1,201 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+i",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.goToDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "editor.action.openDeclarationToTheSide",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+k f12",
+        "command": "-editor.action.openDeclarationToTheSide",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "alt+i",
+        "command": "editor.action.previewDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+f10",
+        "command": "-editor.action.previewDeclaration",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeWindow",
+        "when": "!editorIsOpen"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "-workbench.action.closeWindow"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.quickOpenSelectNext"
+    },
+    {
+        "key": "shift+alt+i",
+        "command": "editor.action.peekImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+shift+f12",
+        "command": "-editor.action.peekImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpenSelectPrevious"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-extension.vim_ctrl+k",
+        "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+shift+8",
+        "command": "editor.action.referenceSearch.trigger",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "shift+f12",
+        "command": "-editor.action.referenceSearch.trigger",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "closeReferenceSearchEditor",
+        "when": "inReferenceSearchEditor && !config.editor.stablePeek"
+    },
+    {
+        "key": "escape",
+        "command": "-closeReferenceSearchEditor",
+        "when": "inReferenceSearchEditor && !config.editor.stablePeek"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "down",
+        "command": "-selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "up",
+        "command": "-selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+shift+alt+=",
+        "command": "workbench.action.increaseViewSize"
+    },
+    {
+        "key": "ctrl+shift+alt+-",
+        "command": "workbench.action.decreaseViewSize"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "closeReferenceSearch",
+        "when": "referenceSearchVisible && !config.editor.stablePeek"
+    },
+    {
+        "key": "shift+escape",
+        "command": "-closeReferenceSearch",
+        "when": "referenceSearchVisible && !config.editor.stablePeek"
+    },
+    {
+        "key": "escape",
+        "command": "-closeAccessibilityHelp",
+        "when": "accessibilityHelpWidgetVisible && editorFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "hideSuggestWidget",
+        "when": "editorTextFocus && suggestWidgetVisible"
+    },
+    {
+        "key": "shift+escape",
+        "command": "-hideSuggestWidget",
+        "when": "editorTextFocus && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "escape",
+        "command": "-workbench.action.closeMessages",
+        "when": "globalMessageVisible"
+    },
+    {
+        "key": "escape",
+        "command": "-closeParameterHints",
+        "when": "editorTextFocus && parameterHintsVisible"
+    },
+    {
+        "key": "escape",
+        "command": "-leaveSnippet",
+        "when": "editorTextFocus && inSnippetMode"
+    },
+    {
+        "key": "escape",
+        "command": "-workbench.action.terminal.hideFindWidget",
+        "when": "terminalFindWidgetVisible && terminalFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-extension.vim_ctrl+j",
+        "when": "editorTextFocus && vim.active && vim.use<C-j> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-extension.vim_ctrl+b",
+        "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+    }
+]
