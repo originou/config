@@ -1,0 +1,64 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 8081:80
+    volumes:
+      - .:/var/www:rw
+      - ./docker/front/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - default
+
+  apache2:
+    image: httpd:2.4
+    build: ./docker/front/apache2/
+    ports:
+      - 443:443
+      - 8080:80
+    volumes:
+      - .:/var/www:rw
+      - ./docker/front/apache2/apache.000-default.conf:/usr/local/apache2/conf.d/docker.apache.conf:ro
+    networks:
+      - default
+
+  engine:
+    build: ./docker/engine/
+    volumes:
+      - .:/var/www:rw
+      - ./docker/engine/php.ini:/usr/local/etc/php/conf.d/custom.ini:ro
+    working_dir: /var/www/
+    networks:
+      - default
+    dns_search:
+      - engine
+
+  db:
+    image: mysql
+    ports:
+      - 3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_USER=root
+      - MYSQL_DATABASE=symfony
+    volumes:
+      - ./db:/var/lib/mysql:rw
+    networks:
+      - default
+    dns_search:
+      - db
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+          - "8888:80"
+      links:
+          - db
+
+volumes:
+  db: {}
+
+networks:
+  default: {}
+#    driver: custom-driver-1
+#  other:
+#    driver: custom-driver-2
