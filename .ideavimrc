@@ -1,0 +1,366 @@
+" {{{ 1. Options generales
+" numéro de ligne
+set number
+set relativenumber
+" Ne pas utiliser le mode de compatibilité vi
+set nocompatible
+" Background
+set background=dark
+" Encodage par défaut des buffers et des fichiers
+set encoding=utf-8
+set fileencoding=utf-8
+ 
+" On transmet les 'beep' au terminal, on ne 'flash' pas
+set noerrorbells
+ 
+" Parenthèses électriques
+set showmatch
+ 
+" Pas de souris, boudiou !
+set mouse=a
+ 
+" Taille maximale d'une ligne
+set textwidth=600
+ 
+" Complétion en mode insertion (<C-n>)
+set completeopt=longest,menuone
+ 
+" {{{ 2 Indentation
+ 
+" Indentation gérée par les plugins plutôt que par autoindent
+set noautoindent
+filetype plugin indent on
+filetype indent on
+ 
+" Taglist plugin ~/.vim/plugin
+filetype on
+"let Tlist_Ctags_Cmd = '~/.vim/plugin/taglist.vim'
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+
+" nnoremap <silent> <F6> :TlistToggle<CR>
+" nnoremap <silent> <F7> :NERDTreeToggle<CR>
+
+" On remplace les \t par des espaces
+set expandtab
+ 
+" Largeur de l'autoindentation
+set shiftwidth=0
+" Largeur de l'indentation avec <tab>
+set softtabstop=0
+" Largeur du caractère <tab>
+set tabstop=2
+ 
+" Indentation pour C (je ne sais plus ce que ça fait)
+set cinoptions={.5s,+.5s,t0,n-1,p2s,(03s,=.5s,>1s,=1s,:1s 
+ 
+" {{{ 3 Recherche et substitution
+ 
+" La recherche reprend au début du fichier (resp à la fin) une fois la fin (resp
+" le début) atteint.
+"set wrapscan
+"
+"Je préfere sans (Denis)
+set nowrapscan
+ 
+" Highlight les paterns recherchés
+set hlsearch
+ 
+" Recherche en live
+set incsearch
+ 
+" {{{ 4 Surlignage, couleurs et police
+ 
+" Configuration du thème de couleur
+"colo darkblue "default torte darkblue
+ 
+" Coloration syntaxique
+syntax on
+" et pour la coloration du shell :
+let g:is_posix = 1
+ 
+" Configuration du hilight quand vim est dans un terminal couleur
+"hi Normal	ctermfg=gray ctermbg=black
+ 
+" Configuration du hilight pour gvim
+"hi Normal	guifg=#c0c0c0 guibg=#000040
+hi Normal	guifg=#c0c0c0 guibg=#000000
+ 
+" Configuration du parsing pour la coloration syntaxique
+syn sync minlines=10000 maxlines=10000
+ 
+" Numérotation automatique des fichiers C++ (désactivée)
+"autocmd FileType cpp set number
+ 
+" {{{ 4 Ligne de statut et Menu
+ 
+" Options pour le GUI
+" m : afficher la barre de menu
+" T : afficher la toolbar
+" g : les menus inactifs sont grisés
+" r : afficher la barre de défilement à droite
+" L : afficher la barre de défilement à gauche quand l'écran est vsplité
+" a=autoselect : le texte sélectionné en VISUAL est copié dans le pressepapier PRIMARY
+set guioptions=mgTrLa
+ 
+" Complétion dans la barre de commande
+set wmnu
+set wildmode=list:longest,list:full
+" Fichiers ignorés lors de la complétion
+set wildignore=*.o,*.r,*.so,*.sl
+ 
+" Taille de l'historique de la barre de commandes
+set history=2000
+ 
+" Affichage de la position dans le fichier dans la barre de statut
+set ruler
+" Configuration de l'affichage de la date et de la position dans le fichier (Denis : J'aime pas)
+"set rulerformat=%27(%{strftime('%a\ %e\ %b\ %I:%M\ %p')}\ %2l,%-2(%c%V%)\ %P%)
+
+" Affichage du mode dans la barre de statut
+set showmode
+set showcmd
+" Affichage intelligent des avertissements (file format, file status, etc.)
+set shm=a
+" La ligne de statut est l'avant dernière ligne
+set laststatus=2
+ 
+" {{{ 5 Fenetres
+ 
+" Hauteur minimale d'une fenêtre active
+set winheight=1
+" Hauteur minimale d'une fenêtre
+set winminheight=0
+ 
+" Ne redimensionne pas automatiquement toutes les fenêtres lors de
+" l'ouverture/fermeture de l'une d'entre elles
+set noequalalways
+" Ajoute les nouvelles fenêtres en dessous ou à droite
+set splitbelow
+set splitright
+ 
+" {{{ 5bis Tabs
+ 
+" Raccourcis claviers pour les Tabs
+map <C-Down>  :tabnew <CR>
+nmap <C-Right> :tabnext <CR>
+nmap <C-Left>  :tabprevious <CR> 
+ 
+" {{{ 6 Sauvegarde
+ 
+" {{{ 7 Unixage
+ 
+" Path pour la recherche de fichier avec :find, :sfind et :tabfind
+set path=.,/usr/include,/usr/X11R6/include,/usr/local/include
+ 
+" Le texte sélectionné en mode visuel est collé dans le presse-papier PRIMARY
+set clipboard=autoselect
+ 
+" Shell par défaut
+set shell=/bin/sh
+ 
+" {{{ 8 Mapping
+ 
+" Supprimer les blancs en début de ligne
+nmap _S :%s/^\s\+//<CR>
+
+" Naviguer entre les fenetres splités
+ map <S-Left> <ESC><C-w>h
+ map <S-Down> <ESC><C-w>j
+ map <S-Up> <ESC><C-w>k
+ map <S-Right> <ESC><C-w>l
+
+" Bien interpréter les caractères de contrôle
+nmap <ESC>[1;5D <C-Left>
+nmap <ESC>[1;5C <C-Right>
+nmap <ESC>Oa <C-Up>
+nmap <ESC>[1;5B <C-Down>
+ 
+"indentation automatique
+vnoremap <C-F>	=$
+vnoremap <tab>	=
+nnoremap <tab>	=$
+nnoremap <C-tab> mzvip=`z
+
+map <F5> <ESC>lBi${<ESC>Ea}<ESC>
+
+"Mapping pour vimdiff <F9> pour diff prec <F10> pour diff suivant <F8> = dp
+
+map <F8> <ESC>dp<ESC>
+map <F9> <ESC>[c<ESC>
+map <F10> <ESC>]c<ESC>
+
+ 
+" Génération des tags pour les fichiers à la C++
+map <F11> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+ 
+" {{{ 9 Plugin
+ 
+"source /usr/share/vim-scripts/games/VimSokoban/sokoban.vim
+"source /usr/share/vim-scripts/plugin/bufexplorer.vim
+"source /usr/share/vim-scripts/plugin/taglist.vim
+ 
+"Le plugin 2html utilise le CSS
+let html_use_css = 1
+ 
+"Configuration de vimspell
+let loaded_vimspell = 1
+set spelllang=fr
+set spellsuggest=10
+let spell_executable = "aspell"
+let spell_auto_type = ''
+let spell_insert_mode = 0
+ 
+" Configuration OmbiCpp (C++)
+let OmniCpp_DefaultNamespaces=["std", "_GLIBCXX_STD"]
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_MayCompleteDot = 1
+let OmniCpp_MayCompleteArrow = 1
+let OmniCpp_MayCompleteScope = 1
+let OmniCpp_ShowPrototypeInAbbr = 1
+ 
+" Configuration de taglist
+"set tags+=~/.vim/tags/stl
+
+if has("autocmd")
+	filetype plugin indent on
+	autocmd FileType text setlocal textwidth=78
+	  
+	  " always jump to last edit position when opening a file
+		 autocmd BufReadPost *
+		   \ if line("'\"") > 0 && line("'\"") <= line("$") |
+		\   exe "normal g`\"" |
+		\ endif
+endif"
+
+set cursorline
+highlight CursorLine guibg=#001000
+
+" Highlight Tabs and Spaces
+highlight Tab ctermbg=darkgray guibg=darkgray
+highlight Space ctermbg=darkblue guibg=darkblue
+au BufWinEnter * let w:m2=matchadd('Tab', '\t', -1)
+au BufWinEnter * let w:m3=matchadd('Space', '\s\+$\| \+\ze\t', -1)
+set list listchars=tab:»·,trail:·
+
+"Changer la taille (gvim)
+set guifont=Monospace\ 8
+
+:map <F4> :set nowrapscan<CR>/#endif<CR>zf%
+
+colorscheme wombat256mod
+
+"noremap a a
+"noremap A A
+"noremap e d
+"noremap E D
+"noremap c i
+"noremap C I
+"noremap r o
+"noremap R O
+"noremap g u
+"noremap l p
+"noremap L P
+"
+"noremap p r
+"noremap P R
+"noremap <C-p> <C-r>
+"
+"noremap h h
+"noremap H H
+"noremap t j
+"noremap T J
+"noremap n k
+"noremap N K
+"noremap s l
+"noremap S L
+"
+"noremap k v
+"noremap K V
+"noremap <C-k> <C-v>
+"
+"noremap . e
+"noremap > E
+"noremap x b
+"noremap X B
+
+"noremap ig gu "noremap iG gU
+
+
+
+
+"noremap ' q
+"noremap ; w
+"noremap . e
+"noremap p r
+"noremap y t
+"noremap f y
+"noremap g u
+"noremap c i
+"noremap r o
+"noremap l p
+"noremap / [
+"noremap = ]
+"noremap a a
+"noremap o s
+"noremap e d
+"noremap u f
+"noremap i g
+"noremap d h
+"noremap h j
+"noremap t k
+"noremap n l
+"noremap s ;
+"noremap - '
+"noremap ; z
+"noremap q x
+"noremap j c
+"noremap k v
+"noremap x b
+"noremap b n
+"noremap m m
+"noremap w ,
+"noremap v .
+"noremap z /
+"noremap [ -
+"noremap ] =
+"noremap " Q
+"noremap < W
+"noremap > E
+"noremap P R
+"noremap Y T
+"noremap F Y
+"noremap G U
+"noremap C I
+"noremap R O
+"noremap L P
+"noremap ? {
+"noremap + }
+"noremap A A
+"noremap O S
+"noremap E D
+"noremap U F
+"noremap I G
+"noremap D H
+"noremap H J
+"noremap T K
+"noremap N L
+"noremap S :
+"noremap _ "
+"noremap : Z
+"noremap Q X
+"noremap J C
+"noremap K V
+"noremap X B
+"noremap B N
+"noremap M M
+"noremap W <
+"noremap V >
+"noremap Z ?
+
+" set langmap='q,\\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
+
+
+map ;j <esc>
+vmap ;j <esc>
+imap ;j <esc>
