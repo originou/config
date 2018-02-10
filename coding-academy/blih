@@ -35,7 +35,8 @@ class blih:
     token = property(token_get, token_set)
 
     def token_calc(self):
-        self._token = bytes(hashlib.sha512(bytes('T6ZF?8X+', 'utf8')).hexdigest(), 'utf8')
+        self._token = bytes(hashlib.sha512(bytes('CMuvBfcP', 'utf8')).hexdigest(), 'utf8')
+        # self._token = bytes(hashlib.sha512(bytes('T6ZF?8X+', 'utf8')).hexdigest(), 'utf8')
         #self._token = bytes(hashlib.sha512(bytes(getpass.getpass(), 'utf8')).hexdigest(), 'utf8')
 
     def sign_data(self, data=None):
