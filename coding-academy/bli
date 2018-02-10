@@ -1,0 +1,50 @@
+#!/bin/bash
+
+REPOSITORY_NAME=$1
+shift
+OTHER_ARGS=$@
+
+if [ -n "$OTHER_ARGS" ]; then
+    echo "Too much args!";
+    exit 1
+fi
+if [ -z "$REPOSITORY_NAME" ]; then
+    echo "Repository name missed!";
+    exit 1
+fi
+
+# set -e #exit if $? -ne 0
+# finalement non, pas interessant
+
+function launch_cmd {
+    cmd="$@"
+    cmpt=0
+    is_ok=1
+    while [ $cmpt -lt 3 ] && [ $is_ok -ne 0 ]; do
+        res=$(eval $cmd)
+        echo $res
+        echo $res | grep -q "Bad token"
+        if [ $? -ne 0 ]; then
+            is_ok=0
+        else
+            ((cmpt++))
+        fi
+        if [ $cmpt -ge 3 ]; then
+            echo "Too much try"
+            exit 1
+        fi
+    done
+}
+
+echo "Step: Create repository"
+launch_cmd "blih -u denis.ma@coding-academy.fr repository create $REPOSITORY_NAME"
+
+echo "Step: Set read ACL for gecko"
+launch_cmd "blih -u denis.ma@coding-academy.fr repository setacl $REPOSITORY_NAME gecko r"
+
+echo "Step: Set read ACL for ramassage-tek"
+launch_cmd "blih -u denis.ma@coding-academy.fr repository setacl $REPOSITORY_NAME ramassage-tek r"
+
+echo "Step: Clone repository."
+git clone git@git.epitech.eu:/denis.ma@coding-academy.fr/$REPOSITORY_NAME
+echo "Done"
