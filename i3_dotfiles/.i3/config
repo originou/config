@@ -197,6 +197,6 @@ assign [class="nixnote2"] 8
 exec --no-startup-id synclient TouchpadOff=1
 exec --no-startup-id compton
 exec --no-startup-id google-chrome
-exec --no-startup-id slack
+# exec --no-startup-id slack
 exec --no-startup-id nixnote2
 # exec --no-startup-id $ws2 exec i3-sensible-terminal #NOK
