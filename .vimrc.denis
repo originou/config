@@ -1,4 +1,4 @@
-colorscheme wombat256mod
+" colorscheme wombat256mod
 " colorscheme solarized
 " colorscheme VisualStudioDark
 " {{{ 1. Options generales
@@ -47,7 +47,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/mru.vim'
 Plugin 'tmhedberg/matchit'
 " Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
@@ -57,6 +57,7 @@ Plugin 'vim-scripts/LustyExplorer'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/Conque-GDB'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
 
 set hidden
 " Plugin '1995eaton/vim-better-javascript-completion'
