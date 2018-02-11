@@ -58,6 +58,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/Conque-GDB'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'Shougo/vimproc.vim', {'do' : 'make'}
+Plugin 'airblade/vim-gitgutter'
 
 set hidden
 " Plugin '1995eaton/vim-better-javascript-completion'
@@ -343,3 +344,31 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+Plugin 'jiangmiao/auto-pairs'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'mattn/webapi-vim'
+" Plugin 'mattn/gist-vim'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'tpope/vim-commentary'
+" Plugin 'godlygeek/tabular'
+" Plugin 'luochen1990/rainbow'
+Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'honza/vim-snippets'
+
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" Use honza's snippets.
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Enable neosnippet snipmate compatibility mode
+let g:neosnippet#enable_snipmate_compatibility = 1
+" let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+let g:ag_working_path_mode="r"
+
+map <C-l> :w<CR>:!cc -g % -o /tmp/caca && /tmp/caca<CR>
