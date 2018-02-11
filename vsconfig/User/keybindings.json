@@ -1,6 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-    {
+  {
         "key": "ctrl+i",
         "command": "editor.action.goToDeclaration",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
@@ -21,7 +21,7 @@
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
     {
-        "key": "alt+i",
+        "key": "shift+alt+i",
         "command": "editor.action.previewDeclaration",
         "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
     },
@@ -29,6 +29,10 @@
         "key": "ctrl+shift+f10",
         "command": "-editor.action.previewDeclaration",
         "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
     },
     {
         "key": "ctrl+w",
@@ -44,15 +48,19 @@
         "command": "workbench.action.closeActiveEditor"
     },
     {
-        "key": "ctrl+w",
-        "command": "-workbench.action.closeActiveEditor"
+        "key": "ctrl+shift+right",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+right",
+        "command": "-workbench.action.focusNextGroup"
     },
     {
         "key": "ctrl+n",
         "command": "workbench.action.quickOpenSelectNext"
     },
     {
-        "key": "shift+alt+i",
+        "key": "alt+i",
         "command": "editor.action.peekImplementation",
         "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
     },
@@ -70,7 +78,7 @@
         "key": "ctrl+p",
         "command": "workbench.action.quickOpenSelectPrevious"
     },
-    {
+     {
         "key": "ctrl+o",
         "command": "workbench.action.quickOpen"
     },
@@ -79,6 +87,22 @@
         "command": "-workbench.action.quickOpen"
     },
     {
+        "key": "ctrl+shift+left",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+left",
+        "command": "-workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+left",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+      {
         "key": "ctrl+k",
         "command": "-extension.vim_ctrl+k",
         "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl && vim.mode != 'Insert'"
@@ -92,14 +116,6 @@
         "key": "shift+f12",
         "command": "-editor.action.referenceSearch.trigger",
         "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-    },
-    {
-        "key": "ctrl+b",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
-        "key": "ctrl+b",
-        "command": "-workbench.action.toggleSidebarVisibility"
     },
     {
         "key": "ctrl+w",
@@ -189,13 +205,34 @@
         "when": "terminalFindWidgetVisible && terminalFocus"
     },
     {
+        "key": "ctrl+b",
+        "command": "-extension.vim_ctrl+b",
+        "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
         "key": "ctrl+j",
         "command": "-extension.vim_ctrl+j",
         "when": "editorTextFocus && vim.active && vim.use<C-j> && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
-        "key": "ctrl+b",
-        "command": "-extension.vim_ctrl+b",
-        "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+        "key": "shift+alt+right",
+        "command": "workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "-workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "-editor.action.smartSelect.grow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "-workbench.action.moveEditorToPreviousGroup"
     }
 ]

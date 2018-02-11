@@ -1,11 +1,12 @@
 {
+    "editor.lineNumbers": "relative",
     // Controls the font size in pixels.
-    "editor.fontSize": 13,
-    "window.zoomLevel": -1,
+    "editor.fontSize": 15,
+    "window.zoomLevel": -2,
     // Controls if the minimap is shown
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
-    "editor.wordWrap": "off",
+    "editor.wordWrap": "on",
     "editor.cursorBlinking": "expand",
     "editor.dragAndDrop": false,
 
@@ -59,6 +60,24 @@
     ],
 
   "vim.easymotion": true,
-  "vim.searchHighlightColor": "rgba(150, 150, 255, 1)",
-  "vim.hlsearch": true
+  "vim.searchHighlightColor": "rgba(150, 150, 255, 0.3)",
+  "vim.hlsearch": true,
+"vim.useSystemClipboard": true,
+"auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascriptreact",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb"
+],
+"python.pythonPath": "python3",
+"telemetry.enableTelemetry": false,
+"telemetry.enableCrashReporter": false
 }

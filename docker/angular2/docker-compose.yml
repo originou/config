@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  nodejs:
+#    image: node:7.10
+    build: ./backend/
+    container_name: typespeed_nodejs
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - 8080:8080
+      - 9229:9229
+    command: bash -c 'node --inspect=default:9229 dist/server.js'
+#    expose: 8080
+    depends_on:
+      - mongodb
+    networks:
+      - default
+
+  mongodb:
+    container_name: typespeed_mongodb
+    image: mongo:3.4
+    volumes:
+      - ./backend/data:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - default
+
+  app:
+#    image: node:7.10
+    container_name: typespeed_app
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 4200:4200
+#    command: bash -c 'npm run start'
+    command: bash -c './node_modules/@angular/cli/bin/ng serve --host 0.0.0.0 --disable-host-check --port 4200'
+    networks:
+      - default
+    depends_on:
+      - nodejs
+
+networks:
+  default: {}
