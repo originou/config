@@ -1,5 +1,5 @@
 UnBundle 'amirh/HTML-AutoCloseTag'
-UnBundle 'gcmt/wildfire.vim'
+" UnBundle 'gcmt/wildfire.vim'
 " UnBundle 'vim-airline/vim-airline'
 
 Bundle 'benmills/vimux'
@@ -14,3 +14,5 @@ Bundle 'Quramy/vim-dtsm'
 Bundle 'mhartington/vim-typings'
 Bundle 'Quramy/tsuquyomi'
 Bundle 'akz92/vim-ionic2'
+Bundle 'vim-scripts/Conque-GDB'
+
