@@ -21,6 +21,8 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+monitor = eDP-1
+
 line-size = 3
 line-color = #f00
 
@@ -46,14 +48,14 @@ tray-padding = 0
 
 [bar/left]
 inherit = bar/default
-monitor = HDMI-0
-modules-left = 
-modules-right = cpu memory i3
+monitor = HDMI-2
+modules-left = i3
+modules-right = cpu memory
 
 [bar/right]
 inherit = bar/default
 monitor = DVI-D-0
-modules-left = i3 
+modules-left = i3
 modules-center = date
 modules-right = volume
 padding-left = 3
@@ -85,15 +87,15 @@ label-unfocused-foreground = ${colors.secondary}
 label-urgent-foreground = ${colors.urgent} 
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-# 
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+#  
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
 ws-icon-9 = 0;
 
 [module/xwindow]
@@ -179,7 +181,7 @@ label = %output%
 
 [module/wired]
 type = internal/network
-interface = eth0
+interface = enp5s0
 ; format-connected = <label-connected>
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.underline}
@@ -211,7 +213,7 @@ animation-packetloss-framerate = 500
 
 [module/wireless-network]
 type = internal/network
-interface = wlan0
+interface = wlp4s0
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 3.0
@@ -292,7 +294,7 @@ animation-packetloss-framerate = 500
 type = internal/battery
 
 ; This is useful in case the battery never reports 100% charge
-full-at = 98
+full-at = 95
 
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
