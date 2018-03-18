@@ -169,6 +169,11 @@ nmap _S :%s/^\s\+//<CR>
  map <S-Up> <ESC><C-w>k
  map <S-Right> <ESC><C-w>l
 
+ map <C-w><Left> <ESC><C-w>h
+ map <C-w><Down> <ESC><C-w>j
+ map <C-w><Up> <ESC><C-w>k
+ map <C-w><Right> <ESC><C-w>l
+
 " Bien interpréter les caractères de contrôle
 nmap <ESC>[1;5D <C-Left>
 nmap <ESC>[1;5C <C-Right>
@@ -364,3 +369,6 @@ colorscheme wombat256mod
 map ;j <esc>
 vmap ;j <esc>
 imap ;j <esc>
+
+
+set surround
