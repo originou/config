@@ -106,3 +106,12 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Hide the user@host
 DEFAULT_USER=`whoami`
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH=$HOME/tools/nvim-linux64/bin:$PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
