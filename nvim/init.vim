@@ -20,6 +20,7 @@ Plug 'neomake/neomake'
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-highlightedyank'
 "Plug 'tmhedberg/SimpylFold'
+Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -97,7 +98,7 @@ vmap ;j <Esc>
 
 let g:deoplete#enable_at_startup = 1
 
-let g:python3_host_prog = expand('/home/originou/.pyenv/versions/3.9.7/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/3.10.6/bin/python')
 "set splitbelow
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
@@ -117,3 +118,8 @@ let g:neomake_python_enabled_makers = ['flake8']
 colorscheme gruvbox
 "colorscheme NeoSolarized
 set background=dark
+
+
+nnoremap <buffer><silent> <c-b> :! black ./<cr>
+inoremap <buffer><silent> <c-b> :! black ./<cr>
+
