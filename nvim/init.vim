@@ -95,6 +95,8 @@ map ;j <Esc>
 imap ;j <Esc>
 vmap ;j <Esc>
 
+map <C-P> :Files<CR>
+map <C-E> :NERDTreeToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
 
@@ -119,7 +121,12 @@ colorscheme gruvbox
 "colorscheme NeoSolarized
 set background=dark
 
-
 nnoremap <buffer><silent> <c-b> :! black ./<cr>
 inoremap <buffer><silent> <c-b> :! black ./<cr>
+" Largeur de l'autoindentation
+set shiftwidth=0
+" Largeur de l'indentation avec <tab>
+set softtabstop=0
+" Largeur du caractère <tab>
+set tabstop=4
 
