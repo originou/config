@@ -115,3 +115,6 @@ eval "$(pyenv init -)"
 export PATH=$HOME/tools/nvim-linux64/bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=$PATH:/usr/local/go/bin:~/go/bin
+
+
